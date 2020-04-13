@@ -94,7 +94,7 @@ const updateUser = async (req, res) => {
     const updatedUser = await User.findOneAndUpdate({email}, req.body);
     if(!updatedUser) return res.json({ error : "User not found"});
     //remember not to return user hash
-    updateUser.hash = undefined;
+    updatedUser.hash = undefined;
 
     return res.json({user : updatedUser});
 }
